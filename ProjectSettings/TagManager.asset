@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - 7
+  - 8
+  - 2
+  - BALAO
+  - 3
+  - 6
+  - 5
+  - BALAO2
+  - 4
+  - 0
+  - 1
+  - 9
+  - Velho
+  - Inventario
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 2021618977
+    locked: 0
+  - name: Lixos
+    uniqueID: 2982777249
+    locked: 0
+  - name: NPC
+    uniqueID: 1888449665
+    locked: 0
+  - name: Player
+    uniqueID: 1366291899
+    locked: 0
