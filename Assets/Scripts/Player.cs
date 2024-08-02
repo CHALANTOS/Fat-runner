@@ -67,6 +67,16 @@ public class Player : MonoBehaviour
            HUD.SetActive(!isHUDActive);
             isHUDActive = !isHUDActive; 
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            velocidade = velocidade * 2;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            velocidade = velocidade / 2;
+        }
     }
 
     void Movimento()
@@ -83,6 +93,8 @@ public class Player : MonoBehaviour
             SR.flipX = false;
             animator.SetBool("Baixo", true);
             animator.SetBool("Idle", false);
+            animator.SetBool("Cima", false);
+            animator.SetBool("Lados", false);
         }
 
         // Subir
@@ -91,6 +103,8 @@ public class Player : MonoBehaviour
             SR.flipX = false;
             animator.SetBool("Cima", true);
             animator.SetBool("Idle", false);
+            animator.SetBool("Baixo", false);
+            animator.SetBool("Lados", false);
             
         }
 
@@ -100,6 +114,8 @@ public class Player : MonoBehaviour
             SR.flipX = false;
             animator.SetBool("Lados", true);
             animator.SetBool("Idle", false);
+            animator.SetBool("Baixo", false);
+            animator.SetBool("Cima", false);
         }
 
         // Esquerda

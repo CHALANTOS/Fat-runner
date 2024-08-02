@@ -60,12 +60,14 @@ public class Cerebro : MonoBehaviour
             Luta();
             Vida();
             bal.InLUTA = true;
+            Player.SetActive(true);
         }
         else if (noLuta)
         {
             InLUTA.SetActive(false);
             RealLife.SetActive(false);
             OutLUTA.SetActive(true);
+            Player.SetActive(false);
             bal.InLUTA = false;
         }
     }
