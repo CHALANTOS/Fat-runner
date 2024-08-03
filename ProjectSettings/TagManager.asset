@@ -18,6 +18,7 @@ TagManager:
   - 9
   - Velho
   - Inventario
+  - TROCA
   layers:
   - Default
   - TransparentFX
@@ -66,4 +67,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1366291899
+    locked: 0
+  - name: up
+    uniqueID: 4181304867
     locked: 0
