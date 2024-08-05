@@ -6,13 +6,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Atributos")]
-    public float speed = 3;
     public float movimentoHorizontal;
     public float movimentoVertical;
     public float velocidade = 5.0f ;
     public bool podeAndar;
     public bool isHUDActive;
     bool isActive;
+    [SerializeField] 
+    int vida;
 
     [Header("Imports")]
     [SerializeField]
@@ -22,18 +23,22 @@ public class Player : MonoBehaviour
     public SpriteRenderer SR;
     public Rigidbody2D rig;
     public Animator animator;
+    [SerializeField]
+    public JoyStick botao;
     
     void Start()
     {
         Debug.Log("Comecou o jogo");
         rig = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
+        velocidade = 5f;
         podeAndar = true;
         inventoryScript = inventario.GetComponent<Inventory>();
 
         isHUDActive = true;
         HUD.SetActive(true);
     }
+
     void Update()
     {
         if (podeAndar == true)
@@ -41,41 +46,26 @@ public class Player : MonoBehaviour
             Movimento();
         }
 
-        EsconderCanvas();        
-    }
-    void EsconderCanvas()
-    {
-        //Inventário
+        //InventÃ¡rio
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (isHUDActive)
             {
-                // AJUDA DESATIVAR
                 HUD.SetActive(false);
                 isHUDActive = false;
             }
-             // INV ATIVAR
-                isActive = !inventario.activeSelf;
-                inventario.SetActive(isActive);
 
-                podeAndar = !inventario.activeSelf;
+            isActive = !inventario.activeSelf;
+            inventario.SetActive(isActive);
+
+            podeAndar = !inventario.activeSelf;
         }
- 
-        // MOSTRAR AJUDA
+
+        //HUD
         if (Input.GetKeyDown(KeyCode.Z) && podeAndar)
         {
-           HUD.SetActive(!isHUDActive);
+            HUD.SetActive(!isHUDActive);
             isHUDActive = !isHUDActive; 
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            velocidade = velocidade * 2;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            velocidade = velocidade / 2;
         }
     }
 
@@ -87,57 +77,86 @@ public class Player : MonoBehaviour
         movimentoVertical = Input.GetAxis("Vertical");
         transform.Translate(Vector3.up * Time.deltaTime * velocidade * movimentoVertical);
 
-        // Descer
-        if (movimentoVertical < 0)
+        if(botao.andar_cima == true)
         {
-            SR.flipX = false;
-            animator.SetBool("Baixo", true);
-            animator.SetBool("Idle", false);
-            animator.SetBool("Cima", false);
-            animator.SetBool("Lados", false);
-        }
-
-        // Subir
-        else if (movimentoVertical > 0)
-        {
-            SR.flipX = false;
+            Debug.Log("andando_cima");
+            transform.Translate(Vector3.up * velocidade * Time.deltaTime);
             animator.SetBool("Cima", true);
             animator.SetBool("Idle", false);
-            animator.SetBool("Baixo", false);
-            animator.SetBool("Lados", false);
-            
         }
-
-        // Direita
-        else if(movimentoHorizontal > 0)
+        
+        if(botao.andar_baixo == true)
         {
-            SR.flipX = false;
-            animator.SetBool("Lados", true);
-            animator.SetBool("Idle", false);
-            animator.SetBool("Baixo", false);
-            animator.SetBool("Cima", false);
+            Debug.Log("andando_baixo");
+            transform.Translate(Vector3.down * velocidade * Time.deltaTime);
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            animator.SetBool("Baixo", true);
         }
-
-        // Esquerda
-        else if (movimentoHorizontal < 0)
+        
+        if(botao.andar_esquerda == true)
         {
+            Debug.Log("andando_esquerda");
+            transform.Translate(Vector3.left * velocidade * Time.deltaTime);
             SR.flipX = true;
             animator.SetBool("Lados", true);
             animator.SetBool("Idle", false);
-            animator.SetBool("Baixo", false);
-            animator.SetBool("Cima", false);
         }
 
-        // Parado
-        else if(movimentoHorizontal == 0 && movimentoVertical == 0)
+        if(botao.andar_direita == true)
+        {
+            Debug.Log("andando_direita");
+            transform.Translate(Vector3.right * velocidade * Time.deltaTime);
+            SR.flipX = false;
+            animator.SetBool("Lados", true);
+        }
+
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            SR.flipX = true;
+            animator.SetBool("Idle", false);
+            animator.SetBool("Lados", true);
+        }
+        else if (Input.GetAxis("Horizontal") > 0)
+        {
+            SR.flipX = false;
+            animator.SetBool("Lados", true);
+        }
+        else if(!botao.andar_esquerda && !botao.andar_direita && movimentoHorizontal == 0 && movimentoVertical == 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            animator.SetBool("Lados", false);
+        }
+
+        if (movimentoVertical < 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            animator.SetBool("Baixo", true);
+        }
+        else if(!botao.andar_baixo && movimentoHorizontal == 0 && movimentoVertical == 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            animator.SetBool("Baixo", false);
+        }
+        if (movimentoVertical > 0)
+        {
+            
+            Debug.Log("andando_cima");
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            animator.SetBool("Cima", true);
+            animator.SetBool("Idle", false);
+            
+        }
+        else
+        {
+            if(!botao.andar_cima && movimentoHorizontal == 0 && movimentoVertical == 0)
             {
-                SR.flipX = false;
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 animator.SetBool("Cima", false);
-                animator.SetBool("Baixo", false);
-                animator.SetBool("Lados", false);
                 animator.SetBool("Idle", true);
             }
+        }
     }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("0"))
