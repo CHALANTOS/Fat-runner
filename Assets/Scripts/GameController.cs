@@ -4,27 +4,50 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Atributos")]
     public bool isCelular;
     public bool isInstucoesActive;
     public bool isBotoesActive;
     public bool isEscolha_plataformActive;
+
+    [Header("Imports")]
     public GameObject Botoes;
     public GameObject Escolha_plataform;
     public GameObject Instrucoes;
+    public PlayerJson playerJ;
+
+    private static bool escolheuPlataforma = false;
+
     void Start()
     {
-        isEscolha_plataformActive = true;
-        Escolha_plataform.SetActive(true);
-        
+        playerJ = new PlayerJson();
+        playerJ.LoadGame();
+
+        if (!escolheuPlataforma)
+        {
+            isEscolha_plataformActive = true;
+            Escolha_plataform.SetActive(true);
+        }
+        else
+        {
+            isEscolha_plataformActive = false;
+            Escolha_plataform.SetActive(false);
+        }
+
         isInstucoesActive = true;
         Instrucoes.SetActive(true);
 
         Botoes.SetActive(true);
         isBotoesActive = true;
-
     }
+
     public void Celular()
     {
+        isCelular = true;
+        playerJ.plataforma = "Celular";
+        playerJ.SaveGame();
+        escolheuPlataforma = true;
+
         if (isInstucoesActive)
         {
             Instrucoes.SetActive(false);
@@ -35,11 +58,15 @@ public class GameController : MonoBehaviour
             Escolha_plataform.SetActive(false);
             isEscolha_plataformActive = false;
         }
-        isCelular = true;
     }
 
     public void PC()
     {
+        isCelular = false;
+        playerJ.plataforma = "PC";
+        playerJ.SaveGame();
+        escolheuPlataforma = true;
+
         if (isBotoesActive)
         {
             Botoes.SetActive(false);
@@ -50,6 +77,5 @@ public class GameController : MonoBehaviour
             Escolha_plataform.SetActive(false);
             isEscolha_plataformActive = false;
         }
-        isCelular = false;
     }
 }

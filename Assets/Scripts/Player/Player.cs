@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float movimentoVertical;
     public float velocidade = 5.0f ;
     public bool podeAndar;
-    public bool isHUDActive;
+    public bool isInstrucoesActive;
     bool isActive;
     [SerializeField] 
     int vida;
@@ -18,13 +18,14 @@ public class Player : MonoBehaviour
     [Header("Imports")]
     [SerializeField]
     public GameObject inventario;
-    public GameObject HUD;
+    public GameObject instrucoes;
     private Inventory inventoryScript;
     public SpriteRenderer SR;
     public Rigidbody2D rig;
     public Animator animator;
     [SerializeField]
     public JoyStick botao;
+    public GameController gameController;
     
     void Start()
     {
@@ -35,8 +36,8 @@ public class Player : MonoBehaviour
         podeAndar = true;
         inventoryScript = inventario.GetComponent<Inventory>();
 
-        isHUDActive = true;
-        HUD.SetActive(true);
+        isInstrucoesActive = true;
+        instrucoes.SetActive(true);
     }
 
     void Update()
@@ -49,10 +50,10 @@ public class Player : MonoBehaviour
         //InventÃ¡rio
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (isHUDActive)
+            if (isInstrucoesActive)
             {
-                HUD.SetActive(false);
-                isHUDActive = false;
+                instrucoes.SetActive(false);
+                isInstrucoesActive = false;
             }
 
             isActive = !inventario.activeSelf;
@@ -64,19 +65,21 @@ public class Player : MonoBehaviour
         //HUD
         if (Input.GetKeyDown(KeyCode.Z) && podeAndar)
         {
-            HUD.SetActive(!isHUDActive);
-            isHUDActive = !isHUDActive; 
+            instrucoes.SetActive(!isInstrucoesActive);
+            isInstrucoesActive = !isInstrucoesActive; 
         }
     }
 
     void Movimento()
     {
-        movimentoHorizontal = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * Time.deltaTime * velocidade * movimentoHorizontal);
-    
-        movimentoVertical = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.up * Time.deltaTime * velocidade * movimentoVertical);
-
+        if(!gameController.isCelular)
+        {
+            movimentoHorizontal = Input.GetAxis("Horizontal");
+            transform.Translate(Vector3.right * Time.deltaTime * velocidade * movimentoHorizontal);
+        
+            movimentoVertical = Input.GetAxis("Vertical");
+            transform.Translate(Vector3.up * Time.deltaTime * velocidade * movimentoVertical);
+        }
         if(botao.andar_cima == true)
         {
             Debug.Log("andando_cima");
@@ -109,51 +112,51 @@ public class Player : MonoBehaviour
             SR.flipX = false;
             animator.SetBool("Lados", true);
         }
-
-        if (Input.GetAxis("Horizontal") < 0)
-        {
-            SR.flipX = true;
-            animator.SetBool("Idle", false);
-            animator.SetBool("Lados", true);
-        }
-        else if (Input.GetAxis("Horizontal") > 0)
-        {
-            SR.flipX = false;
-            animator.SetBool("Lados", true);
-        }
-        else if(!botao.andar_esquerda && !botao.andar_direita && movimentoHorizontal == 0 && movimentoVertical == 0)
-        {
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            animator.SetBool("Lados", false);
-        }
-
-        if (movimentoVertical < 0)
-        {
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            animator.SetBool("Baixo", true);
-        }
-        else if(!botao.andar_baixo && movimentoHorizontal == 0 && movimentoVertical == 0)
+        if(!botao.andar_baixo && movimentoHorizontal == 0 && movimentoVertical == 0)
         {
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
             animator.SetBool("Baixo", false);
         }
-        if (movimentoVertical > 0)
+        if(!botao.andar_esquerda && !botao.andar_direita && movimentoHorizontal == 0 && movimentoVertical == 0)
         {
-            
-            Debug.Log("andando_cima");
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            animator.SetBool("Cima", true);
-            animator.SetBool("Idle", false);
-            
+            animator.SetBool("Lados", false);
         }
-        else
+        if(!botao.andar_cima && movimentoHorizontal == 0 && movimentoVertical == 0)
         {
-            if(!botao.andar_cima && movimentoHorizontal == 0 && movimentoVertical == 0)
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            animator.SetBool("Cima", false);
+            animator.SetBool("Idle", true);
+        }
+            
+        if(!gameController.isCelular)
+        {
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                SR.flipX = true;
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", true);
+            }
+            else if (Input.GetAxis("Horizontal") > 0)
+            {
+                SR.flipX = false;
+                animator.SetBool("Lados", true);
+            }
+            else if (movimentoVertical < 0)
             {
                 transform.eulerAngles = new Vector3(0f, 0f, 0f);
-                animator.SetBool("Cima", false);
-                animator.SetBool("Idle", true);
+                animator.SetBool("Baixo", true);
             }
+            else if (movimentoVertical > 0)
+            {
+                
+                Debug.Log("andando_cima");
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                animator.SetBool("Cima", true);
+                animator.SetBool("Idle", false);
+                
+            }
+
         }
     }
 

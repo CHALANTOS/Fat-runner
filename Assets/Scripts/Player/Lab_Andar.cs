@@ -15,9 +15,14 @@ public class Lab_Andar : MonoBehaviour
     public SpriteRenderer SR;
     public Animator animator;
     public Rigidbody2D rig;
+    [SerializeField]
+    public JoyStick botao;
+    public PlayerJson playerJ;
 
     void Start()
     {
+        playerJ = new PlayerJson();
+        playerJ.LoadGame();
         rig = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
         StartCoroutine(Comeco());
@@ -35,65 +40,119 @@ public class Lab_Andar : MonoBehaviour
 
     void Movimento()
     {
-        movimentoHorizontal = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * Time.deltaTime * velocidade * movimentoHorizontal);
-
-        movimentoVertical = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.up * Time.deltaTime * velocidade * movimentoVertical);
-
-        // Idle
-        if (movimentoHorizontal == 0 && movimentoVertical == 0 )
+        if(playerJ.plataforma == "PC")
         {
-            animator.SetBool("Idle", true);
-            animator.SetBool("Lados", false);
-            animator.SetBool("Baixo", false);
-            animator.SetBool("Cima", false);
+            movimentoHorizontal = Input.GetAxis("Horizontal");
+            transform.Translate(Vector3.right * Time.deltaTime * velocidade * movimentoHorizontal);
 
-            SR.flipX = false;
+            movimentoVertical = Input.GetAxis("Vertical");
+            transform.Translate(Vector3.up * Time.deltaTime * velocidade * movimentoVertical);
         }
-
-        // Cima
-        else if (movimentoVertical > 0)
+        
+        if(movimentoHorizontal == 0 && movimentoVertical == 0)
         {
-            animator.SetBool("Idle", false);
-            animator.SetBool("Lados", false);
-            animator.SetBool("Baixo", false);
-            animator.SetBool("Cima", true);
-
-            SR.flipX = false;
+            if(!botao.andar_cima && !botao.andar_baixo && !botao.andar_esquerda && !botao.andar_direita)
+            {
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                SR.flipX = false;
+                animator.SetBool("Baixo", false);
+                animator.SetBool("Lados", false);
+                animator.SetBool("Cima", false);
+                animator.SetBool("Idle", true);
+            }
         }
-
-        //Baixo
-        else if (movimentoVertical < 0)
+        if(playerJ.plataforma == "Celular")
         {
-            animator.SetBool("Idle", false);
-            animator.SetBool("Lados", false);
-            animator.SetBool("Baixo", true);
-            animator.SetBool("Cima", false);
+            if(botao.andar_cima == true)
+            {
+                transform.Translate(Vector3.up * velocidade * Time.deltaTime);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", false);
+                animator.SetBool("Baixo", false);
+                animator.SetBool("Cima", true);
 
-            SR.flipX = false;
+                SR.flipX = false;
+            }
+            
+            if(botao.andar_baixo == true)
+            {
+                transform.Translate(Vector3.down * velocidade * Time.deltaTime);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", false);
+                animator.SetBool("Baixo", true);
+                animator.SetBool("Cima", false);
+
+                SR.flipX = false;
+            }
+            
+            if(botao.andar_esquerda == true)
+            {
+                transform.Translate(Vector3.left * velocidade * Time.deltaTime);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", true);
+                animator.SetBool("Baixo", false);
+                animator.SetBool("Cima", false);
+
+                SR.flipX = false;
+            }
+            
+            if(botao.andar_direita == true)
+            {
+                transform.Translate(Vector3.right * velocidade * Time.deltaTime);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", true);
+                animator.SetBool("Baixo", false);
+                animator.SetBool("Cima", false);
+
+                SR.flipX = true;
+            }
         }
-
-        // Esquerda
-        else if(movimentoHorizontal < 0)
+        
+        if(playerJ.plataforma == "PC")
         {
-            animator.SetBool("Idle", false);
-            animator.SetBool("Lados", true);
-            animator.SetBool("Baixo", false);
-            animator.SetBool("Cima", true);
+            // Cima
+            if (movimentoVertical > 0)
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", false);
+                animator.SetBool("Baixo", false);
+                animator.SetBool("Cima", true);
 
-            SR.flipX = false;
-        }
+                SR.flipX = false;
+            }
 
-        // Direita
-        else if(movimentoHorizontal > 0)
-        {
-            animator.SetBool("Idle", false);
-            animator.SetBool("Lados", true);
-            animator.SetBool("Baixo", false);
-            animator.SetBool("Cima", true);
+            //Baixo
+            else if (movimentoVertical < 0)
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", false);
+                animator.SetBool("Baixo", true);
+                animator.SetBool("Cima", false);
 
-            SR.flipX = true;
+                SR.flipX = false;
+            }
+
+            // Esquerda
+            else if(movimentoHorizontal < 0)
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", true);
+                animator.SetBool("Baixo", false);
+                animator.SetBool("Cima", false);
+
+                SR.flipX = false;
+            }
+
+            // Direita
+            else if(movimentoHorizontal > 0)
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", true);
+                animator.SetBool("Baixo", false);
+                animator.SetBool("Cima", false);
+
+                SR.flipX = true;
+            }
         }
     }
 

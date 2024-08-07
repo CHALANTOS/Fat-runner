@@ -26,6 +26,8 @@ public class Cerebro : MonoBehaviour
     public GameObject RealLife;
     public Ball bal;
     public BarraDeVida Barra;
+    [SerializeField]
+    public JoyStick botao;
     
     void Start()
     {
@@ -78,6 +80,26 @@ public class Cerebro : MonoBehaviour
         Player.SetActive(true);
         float horizontal = Input.GetAxis("Horizontal") * Sensitivity;
         float vertical = Input.GetAxis("Vertical") * Sensitivity;
+
+        if(botao.andar_cima == true)
+        {
+            vertical += speed * Time.deltaTime;        
+        }
+
+        if(botao.andar_baixo == true)
+        {
+            vertical -= speed * Time.deltaTime;
+        }
+
+        if(botao.andar_esquerda == true)
+        {
+            horizontal -= speed * Time.deltaTime;
+        }
+
+        if(botao.andar_direita == true)
+        {
+            horizontal += speed * Time.deltaTime;
+        }
 
         MovePos.x += horizontal;
         MovePos.y += vertical;

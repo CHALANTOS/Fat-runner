@@ -7,35 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class JoyStick : MonoBehaviour
 {  
-    [SerializeField]
-    Andar PlayerScript;
-    [SerializeField]
-    public GameObject player;
-    
-    [SerializeField]
-    private Button BotaoJogar;
-
     public bool andar_cima;
     public bool andar_baixo;
     public bool andar_esquerda;
     public bool andar_direita;
-    GameObject MenuGameUI;
-
-    private void Awake()
-    {
-        BotaoJogar.onClick.AddListener(OnButtonPlayClickJogar);
-    }
-
-    private void OnButtonPlayClickJogar()
-    {
-        Debug.Log("JOGAR");
-        
-    }
-
-    public void ChangeScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
 
     public void MovimentoBotaoCima()
     {
@@ -62,6 +37,5 @@ public class JoyStick : MonoBehaviour
         andar_baixo = false;
         andar_esquerda = false;
         andar_direita = false;
-
     }
 }

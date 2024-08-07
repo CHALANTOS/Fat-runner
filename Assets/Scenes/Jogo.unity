@@ -24254,7 +24254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -708.99976, y: 368.19}
+  m_AnchoredPosition: {x: -708.9999, y: 368.19}
   m_SizeDelta: {x: 314.22, y: 41.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &335805884
@@ -24279,7 +24279,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d461dd3aa22feab4380e9bb6516fd74f, type: 3}
-    m_FontSize: 35
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -24290,7 +24290,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: FECHAR HUD
+  m_Text: FECHAR TUTORIAL
 --- !u!222 &335805885
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25449,6 +25449,8 @@ MonoBehaviour:
   Botoes: {fileID: 869689003}
   Escolha_plataform: {fileID: 1414685921}
   Instrucoes: {fileID: 1397914738}
+  playerJ:
+    plataforma: 
 --- !u!4 &751691289
 Transform:
   m_ObjectHideFlags: 0
@@ -26111,9 +26113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7aef898c73deef4a9f09406263ec210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerScript: {fileID: 0}
-  player: {fileID: 0}
-  BotaoJogar: {fileID: 0}
   andar_cima: 0
   andar_baixo: 0
   andar_esquerda: 0
@@ -26176,14 +26175,15 @@ MonoBehaviour:
   movimentoVertical: 0
   velocidade: 10
   podeAndar: 0
-  isHUDActive: 0
+  isInstrucoesActive: 0
   vida: 0
   inventario: {fileID: 112741667}
-  HUD: {fileID: 1805198785}
+  instrucoes: {fileID: 1397914738}
   SR: {fileID: 948999235}
   rig: {fileID: 948999233}
   animator: {fileID: 948999231}
   botao: {fileID: 869689005}
+  gameController: {fileID: 751691288}
 --- !u!50 &948999233
 Rigidbody2D:
   serializedVersion: 4
@@ -36512,7 +36512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1414685922
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42362,7 +42362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939627797}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.01, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

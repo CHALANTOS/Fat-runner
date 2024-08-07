@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4206026399408858591}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1203580743832775468
 SpriteRenderer:
@@ -74,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1524803579
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 1366291899
+  m_SortingLayer: 4
+  m_SortingOrder: 1
   m_Sprite: {fileID: 151441813, guid: 9d60154beb7d28640b76d5bdd5fb5e25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,8 +105,6 @@ MonoBehaviour:
   animator: {fileID: 342128770193747925}
   Lado: 0
   InLUTA: 0
-  velocidade: 5
-  acabouAtaque: 0
 --- !u!114 &121270870248005471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,10 +153,29 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000029802322, y: -0.3153395}
+  m_Offset: {x: -0.007067159, y: -0.35244504}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -169,5 +186,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38861006, y: 0.66801286}
+  m_Size: {x: 0.26139057, y: 0.5160567}
   m_EdgeRadius: 0
