@@ -28,9 +28,12 @@ public class Cerebro : MonoBehaviour
     public BarraDeVida Barra;
     [SerializeField]
     public JoyStick botao;
+    public PlayerJson playerJ;
     
     void Start()
     {
+        playerJ = new PlayerJson();
+        playerJ.LoadGame();
         isLuta = false;
         InLUTA.SetActive(false);
         RealLife.SetActive(false);
@@ -78,27 +81,33 @@ public class Cerebro : MonoBehaviour
     {
         
         Player.SetActive(true);
-        float horizontal = Input.GetAxis("Horizontal") * Sensitivity;
-        float vertical = Input.GetAxis("Vertical") * Sensitivity;
 
-        if(botao.andar_cima == true)
+        float horizontal = 0;
+        float vertical = 0;
+
+        if (playerJ.plataforma == "PC")
         {
-            vertical += speed * Time.deltaTime;        
+            horizontal = Input.GetAxis("Horizontal") * Sensitivity;
+            vertical = Input.GetAxis("Vertical") * Sensitivity;
         }
-
-        if(botao.andar_baixo == true)
+        else if (playerJ.plataforma == "Celular")
         {
-            vertical -= speed * Time.deltaTime;
-        }
-
-        if(botao.andar_esquerda == true)
-        {
-            horizontal -= speed * Time.deltaTime;
-        }
-
-        if(botao.andar_direita == true)
-        {
-            horizontal += speed * Time.deltaTime;
+            if (botao.andar_cima)
+            {
+                vertical += speed * Time.deltaTime;        
+            }
+            if (botao.andar_baixo)
+            {
+                vertical -= speed * Time.deltaTime;
+            }
+            if (botao.andar_esquerda)
+            {
+                horizontal -= speed * Time.deltaTime;
+            }
+            if (botao.andar_direita)
+            {
+                horizontal += speed * Time.deltaTime;
+            }
         }
 
         MovePos.x += horizontal;
@@ -129,10 +138,9 @@ public class Cerebro : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        // Verifique se o objeto com o qual colidiu tem a tag "Ball"
         if (col.CompareTag("Ball"))
         {
-            Barra.RealVida -= 1; // Reduza a vida pelo valor de dano
+            Barra.RealVida -= 1;
             Debug.Log("Colidiu com a Ball! Vida restante: " + Barra.RealVida);
         }
     }

@@ -11,6 +11,8 @@ public class LutaController : MonoBehaviour
     public FixPosition fix; 
     public Button Lutar;
     public Button Fugir;
+    public GameObject botao;
+    public bool isButtonsActive;
     public string str;
     public Cerebro cerebro;
     public Ball ballScript;
@@ -20,9 +22,25 @@ public class LutaController : MonoBehaviour
     public bool Ataque = true;
     private bool isCoroutineRunning = false;
     public bool comeco;
+    public PlayerJson playerJ;
+
 
     void Start()
     {
+        playerJ = new PlayerJson();
+        playerJ.LoadGame();
+
+        if(playerJ.plataforma == "PC")
+        {
+            isButtonsActive = false;
+            botao.SetActive(false);
+        }
+        else
+        {
+            isButtonsActive = true;
+            botao.SetActive(true);
+        }
+
         cerebro = FindObjectOfType<Cerebro>();
         if (cerebro == null)
         {

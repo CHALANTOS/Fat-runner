@@ -550,6 +550,8 @@ MonoBehaviour:
   bal: {fileID: 2070052150}
   Barra: {fileID: 1172202598}
   botao: {fileID: 549809245}
+  playerJ:
+    plataforma: 
 --- !u!212 &182424847
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1567,6 +1569,8 @@ MonoBehaviour:
   fix: {fileID: 2070052153}
   Lutar: {fileID: 376589660}
   Fugir: {fileID: 1808932819}
+  botao: {fileID: 549809243}
+  isButtonsActive: 0
   str: Jogo
   cerebro: {fileID: 182424846}
   ballScript: {fileID: 2070052150}
@@ -1575,6 +1579,8 @@ MonoBehaviour:
   ballAnimator: {fileID: 2070052149}
   Ataque: 1
   comeco: 0
+  playerJ:
+    plataforma: 
 --- !u!1 &1103438791
 GameObject:
   m_ObjectHideFlags: 0
