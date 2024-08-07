@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21ea59fd9a6fe664caeaee8ec03224c3
+guid: efc05bb5a13a77045bffa664a12d7917
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 320
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -160,7 +160,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: LenhadorBranco_0
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 60
+        width: 180
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864f9c6792c199b4092e40defeb9c388
+      internalID: 46462646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LenhadorBranco_1
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 60
+        width: 180
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8abb553048399624d8b582321ed7bbec
+      internalID: 1588789948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -171,7 +213,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LenhadorBranco_0: 46462646
+      LenhadorBranco_1: 1588789948
+      LenhadorBranco_10: 1428682922
+      LenhadorBranco_11: 367311589
+      LenhadorBranco_2: -1530214103
+      LenhadorBranco_3: 1664172089
+      LenhadorBranco_4: -1836719565
+      LenhadorBranco_5: -466901263
+      LenhadorBranco_6: -1324958614
+      LenhadorBranco_7: 686310805
+      LenhadorBranco_8: -362469423
+      LenhadorBranco_9: 402750359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
