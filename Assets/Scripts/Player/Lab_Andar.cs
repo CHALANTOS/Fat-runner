@@ -15,9 +15,12 @@ public class Lab_Andar : MonoBehaviour
     public SpriteRenderer SR;
     public Animator animator;
     public Rigidbody2D rig;
-    [SerializeField]
+    public GameObject CutScene;
+    
+
     public JoyStick botao;
     public PlayerJson playerJ;
+    public CanvasController CanvasController;
 
     void Start()
     {
@@ -158,7 +161,7 @@ public class Lab_Andar : MonoBehaviour
 
     IEnumerator Comeco()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         Iniciou = true;
         Debug.Log("Começou Lab");
     }

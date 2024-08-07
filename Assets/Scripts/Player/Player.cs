@@ -136,24 +136,32 @@ public class Player : MonoBehaviour
                 SR.flipX = true;
                 animator.SetBool("Idle", false);
                 animator.SetBool("Lados", true);
+                animator.SetBool("Cima", false);
+                animator.SetBool("Idle", false);
             }
             else if (Input.GetAxis("Horizontal") > 0)
             {
                 SR.flipX = false;
                 animator.SetBool("Lados", true);
+                animator.SetBool("Cima", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Baixo", false);
             }
             else if (movimentoVertical < 0)
             {
-                transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                SR.flipX = false;
                 animator.SetBool("Baixo", true);
+                animator.SetBool("Cima", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Lados", false);
             }
             else if (movimentoVertical > 0)
             {
-                
-                Debug.Log("andando_cima");
-                transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                SR.flipX = false;
                 animator.SetBool("Cima", true);
                 animator.SetBool("Idle", false);
+                animator.SetBool("Lados", false);
+                animator.SetBool("Baixo", false);
                 
             }
 

@@ -381,7 +381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -171.4, y: -46.229984}
+  m_AnchoredPosition: {x: -174.9, y: -47.5}
   m_SizeDelta: {x: 68.79, y: 12.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615465174
@@ -493,8 +493,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -473513519, guid: 949dd44d23b220141be9e8b62c1456a3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -654,7 +654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130.98999, y: -84.05998}
+  m_AnchoredPosition: {x: -130.98999, y: -90}
   m_SizeDelta: {x: 68.79, y: 12.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829160490
@@ -766,8 +766,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 1724340483, guid: c8ac03e15b8a3ce41aa95353212db645, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -821,7 +821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -129.7, y: -8.4}
+  m_AnchoredPosition: {x: -131, y: -5.2}
   m_SizeDelta: {x: 68.79, y: 12.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917111487
@@ -933,8 +933,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2004792267, guid: 2839bc4008472fd47ade07326a5b80dd, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -124544,13 +124544,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1427151965}
+  - component: {fileID: 1427151966}
   m_Layer: 5
   m_Name: CutScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1427151965
 RectTransform:
   m_ObjectHideFlags: 0
@@ -124573,6 +124574,27 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00018310547, y: 0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1427151966
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427151964}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 360d9cf00b94c994fa17ce7868d95a57, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1479296339
 GameObject:
   m_ObjectHideFlags: 0
@@ -124608,7 +124630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6, y: -3}
+  m_AnchoredPosition: {x: 0.5, y: 0.4}
   m_SizeDelta: {x: 453.18567, y: 71.46476}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1479296341
@@ -124632,7 +124654,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d461dd3aa22feab4380e9bb6516fd74f, type: 3}
+    m_Font: {fileID: 12800000, guid: d60472ca81d11eb449dc4c6a2adbda8e, type: 3}
     m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
@@ -124663,6 +124685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1481519869}
   - component: {fileID: 1481519870}
+  - component: {fileID: 1481519871}
   m_Layer: 5
   m_Name: Botoes_mov
   m_TagString: Untagged
@@ -124691,7 +124714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -134.69, y: -71.7}
+  m_AnchoredPosition: {x: -497, y: -278}
   m_SizeDelta: {x: 75.326, y: 75.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1481519870
@@ -124710,6 +124733,27 @@ MonoBehaviour:
   andar_baixo: 0
   andar_esquerda: 0
   andar_direita: 0
+--- !u!95 &1481519871
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481519868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0a6ef28be15f1c448cd6274718ce650, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1675503933
 GameObject:
   m_ObjectHideFlags: 0
@@ -124759,10 +124803,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -124828,6 +124872,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botao: {fileID: 1481519868}
+  CutScene: {fileID: 1427151964}
+  botaoAnim: {fileID: 1481519871}
   playerJ:
     plataforma: 
   isButtonsActive: 0
@@ -124868,7 +124914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89.289986, y: -46.399982}
+  m_AnchoredPosition: {x: -87, y: -47.6}
   m_SizeDelta: {x: 68.79, y: 12.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1812342779
@@ -124980,8 +125026,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 624814767, guid: 2587f5cdcd5e15040b202d6380a047ee, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -143010,9 +143056,11 @@ MonoBehaviour:
   SR: {fileID: 2004097398}
   animator: {fileID: 2004097394}
   rig: {fileID: 2004097396}
+  CutScene: {fileID: 1427151964}
   botao: {fileID: 1481519870}
   playerJ:
     plataforma: 
+  CanvasController: {fileID: 1675503938}
 --- !u!212 &2004097398
 SpriteRenderer:
   m_ObjectHideFlags: 0
