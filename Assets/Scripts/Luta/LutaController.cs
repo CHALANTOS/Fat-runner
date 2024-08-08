@@ -23,10 +23,14 @@ public class LutaController : MonoBehaviour
     private bool isCoroutineRunning = false;
     public bool comeco;
     public PlayerJson playerJ;
+    public GameObject BG;
+    public GameObject objetos;
 
 
     void Start()
     {
+
+
         playerJ = new PlayerJson();
         playerJ.LoadGame();
 
@@ -96,7 +100,7 @@ public class LutaController : MonoBehaviour
 
             Ataque = false;
         }
-        isCoroutineRunning = false; // Marca que a coroutine terminou
+        isCoroutineRunning = false;
     }
 
     void OnLutarClicked()
@@ -118,4 +122,5 @@ public class LutaController : MonoBehaviour
         SceneManager.LoadScene(str);
         Debug.Log("Fugiu para a cena: " + str);
     }
+
 }

@@ -32,6 +32,15 @@ public class Cerebro : MonoBehaviour
     
     void Start()
     {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            Color newColor = spriteRenderer.color;
+            newColor.a = 0f;
+            spriteRenderer.color = newColor;
+        }
+
         playerJ = new PlayerJson();
         playerJ.LoadGame();
         isLuta = false;
@@ -60,7 +69,15 @@ public class Cerebro : MonoBehaviour
     private void FixedUpdate()
     {
         if (isLuta)
-        {            
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer != null)
+            {
+                Color newColor = spriteRenderer.color;
+                newColor.a = 1;
+                spriteRenderer.color = newColor;
+            }   
             Movimento();
             Luta();
             Vida();
@@ -131,8 +148,7 @@ public class Cerebro : MonoBehaviour
         Barra.SetarVida();
         if (Barra.RealVida <= 0)
         {
-            morte();
-            SceneManager.LoadScene("Jogo");
+            animator.SetBool("morreu",true);
         }
     }
 
@@ -145,9 +161,8 @@ public class Cerebro : MonoBehaviour
         }
     }
 
-    IEnumerator morte()
+    public void TrocaCena()
     {
-        animator.Play("morte");
-        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Jogo");
     }
 }
