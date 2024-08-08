@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public GameObject Botoes;
     public GameObject Escolha_plataform;
     public GameObject Instrucoes;
+    public GameObject transicao;
+    public Animator transicaoAnim;
     public PlayerJson playerJ;
 
     private static bool escolheuPlataforma = false;
@@ -23,8 +25,10 @@ public class GameController : MonoBehaviour
         playerJ = new PlayerJson();
         playerJ.LoadGame();
 
+
         if (!escolheuPlataforma)
         {
+            transicao.SetActive(false);
             isEscolha_plataformActive = true;
             Escolha_plataform.SetActive(true);
         }
@@ -32,6 +36,7 @@ public class GameController : MonoBehaviour
         {
             isEscolha_plataformActive = false;
             Escolha_plataform.SetActive(false);
+            transicaoAnim.Play("transicao_Jogo");
         }
 
         isInstucoesActive = true;
@@ -39,6 +44,15 @@ public class GameController : MonoBehaviour
 
         Botoes.SetActive(true);
         isBotoesActive = true;
+    }
+
+    void Update()
+    {
+        if (playerJ.plataforma == "PC")
+        {
+            Botoes.SetActive(false);
+            isBotoesActive = false;
+        }
     }
 
     public void Celular()
@@ -58,6 +72,7 @@ public class GameController : MonoBehaviour
             Escolha_plataform.SetActive(false);
             isEscolha_plataformActive = false;
         }
+        transicao.SetActive(true);
     }
 
     public void PC()
@@ -77,5 +92,6 @@ public class GameController : MonoBehaviour
             Escolha_plataform.SetActive(false);
             isEscolha_plataformActive = false;
         }
+        transicao.SetActive(true);
     }
 }

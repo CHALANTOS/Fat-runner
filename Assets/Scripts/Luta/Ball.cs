@@ -18,7 +18,7 @@ public class Ball : MonoBehaviour
         animator = GetComponent<Animator>();
         if(transform.position.x == 0 && transform.position.y == 0)
         {
-            Destroy(this.gameObject);
+            Destruir();
         }
     }
 
@@ -44,5 +44,10 @@ public class Ball : MonoBehaviour
             animator.SetBool("atk2",true);
         }
     }
+    public void Destruir()
+    {
+        Destroy(this.gameObject);
+    }
 }
+
 
