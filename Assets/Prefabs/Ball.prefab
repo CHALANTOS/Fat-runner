@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6125903283074544156}
   - component: {fileID: 1203580743832775468}
   - component: {fileID: 4592445866328801375}
-  - component: {fileID: 121270870248005471}
   - component: {fileID: 342128770193747925}
   - component: {fileID: 4206026399408858591}
   m_Layer: 0
@@ -34,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1203580743832775468
 SpriteRenderer:
@@ -105,23 +104,6 @@ MonoBehaviour:
   animator: {fileID: 342128770193747925}
   Lado: 0
   InLUTA: 0
---- !u!114 &121270870248005471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8899458287244655465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 426ebd098efe24f4eb8851b269cbfb4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 342128770193747925}
-  initialX: 0
-  initialZ: 0
-  initialY: 0
-  trocandoPosicao: 0
 --- !u!95 &342128770193747925
 Animator:
   serializedVersion: 5

@@ -1,0 +1,16 @@
+{
+    "id": "",
+    "iAttack": 0,
+    "prefab": {
+        "instanceID": 0
+    },
+    "sprite": {
+        "instanceID": 0
+    },
+    "rig": {
+        "instanceID": 0
+    },
+    "itemImage": {
+        "instanceID": 0
+    }
+}

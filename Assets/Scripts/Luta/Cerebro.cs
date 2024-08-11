@@ -13,6 +13,7 @@ public class Cerebro : MonoBehaviour
     public float speed;
     public float Sensitivity;
     public bool isLuta, noLuta;
+    public bool escudoAtivo = false;
     private int MaxX = 2;
     private int MaxY = 2;
     private int MinX = -2;
@@ -29,9 +30,11 @@ public class Cerebro : MonoBehaviour
     [SerializeField]
     public JoyStick botao;
     public PlayerJson playerJ;
+    public GameObject escudo;
     
     void Start()
     {
+        escudo.SetActive(false);
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (spriteRenderer != null)
@@ -156,8 +159,13 @@ public class Cerebro : MonoBehaviour
     {
         if (col.CompareTag("Ball"))
         {
-            Barra.RealVida -= 1;
-            Debug.Log("Colidiu com a Ball! Vida restante: " + Barra.RealVida);
+            if(escudoAtivo == false)
+            {
+                Barra.RealVida -= 1;
+                Debug.Log("Colidiu com a Ball! Vida restante: " + Barra.RealVida);
+            }
+            escudo.SetActive(false);
+            escudoAtivo = false;
         }
     }
 
