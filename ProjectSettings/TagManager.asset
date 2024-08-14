@@ -19,6 +19,12 @@ TagManager:
   - Velho
   - Inventario
   - TROCA
+  - Ball
+  - Plastico
+  - Vidro
+  - Papel
+  - Metal
+  - Organico
   layers:
   - Default
   - TransparentFX
