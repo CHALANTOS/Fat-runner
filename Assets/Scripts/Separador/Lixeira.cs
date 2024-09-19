@@ -7,8 +7,9 @@ public class Lixeira : MonoBehaviour, IDropHandler
 {
     [SerializeField]
     private RectTransform _transform;
+    public LixoController lixoController;
 
-     public void OnDrop(PointerEventData eventData)
+    public void OnDrop(PointerEventData eventData)
     {
         eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = _transform.anchoredPosition;
     }

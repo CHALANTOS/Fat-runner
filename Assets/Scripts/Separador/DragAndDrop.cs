@@ -11,6 +11,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
     private Canvas _canvas;
     [SerializeField]
     private CanvasGroup _canvasGroup;
+
+    public Animator _animator;
+
     public void OnBeginDrag(PointerEventData eventData)
     {  
         _canvasGroup.alpha = 0.5f;
@@ -28,6 +31,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("Apertou");
+        _animator.enabled = false;
     }
     void Start()
     {
