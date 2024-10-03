@@ -12,6 +12,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
     [SerializeField]
     private CanvasGroup _canvasGroup;
 
+    private float posRandomX;
+
     public Animator _animator;
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -49,5 +51,20 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }
+    }
+    void Update()
+    {
+        posRandomX = Random.Range(-429f, 898f);
+    }
+
+    public void RandomX()
+    {
+        posRandomX = Random.Range(-429f, 898f); 
+
+        Vector3 currentPosition = _transform.anchoredPosition;
+
+        _transform.anchoredPosition = new Vector3(posRandomX, currentPosition.y);
+    
+        Debug.Log($"Posição aleatória aplicada: {posRandomX}");
     }
 }

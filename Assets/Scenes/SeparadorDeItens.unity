@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 1837904}
-  lixoController: {fileID: 1579710628}
+  coordenada: {x: 0, y: 0}
 --- !u!114 &1837906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 56721407}
-  lixoController: {fileID: 1579710628}
+  coordenada: {x: 0, y: 0}
 --- !u!114 &56721409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 432696139}
-  lixoController: {fileID: 1579710628}
+  coordenada: {x: 0, y: 0}
 --- !u!114 &432696141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,7 +995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 922885841}
-  lixoController: {fileID: 1579710628}
+  coordenada: {x: 0, y: 0}
 --- !u!114 &922885843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 1086263620}
-  lixoController: {fileID: 1579710628}
+  coordenada: {x: 0, y: 0}
 --- !u!114 &1086263622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,7 +2038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -353, y: 823}
+  m_AnchoredPosition: {x: -429, y: 823}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1539084422
@@ -2282,7 +2282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 631, y: 823}
+  m_AnchoredPosition: {x: 898, y: 823}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1672587195
