@@ -1,35 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LixoController : MonoBehaviour
 {
-    public Canvas canvas;
-    public GameObject[] SpawnItens;
-    int randomIndex;
-    float randomPosition;
-    public float tempoSpawn;
-    public float spawnDelay;
-    public bool dropou;
-    public float pontos;
+    public int pontos;
 
-    void Start()
+    public Lixeira lixeira;
+
+    public TMPro.TextMeshProUGUI NumPontos;
+
+    void start()
     {
-        //InvokeRepeating("SpawnRandom", tempoSpawn, spawnDelay);
+        pontos = 0;
     }
-
-    // void SpawnRandom()
-    // {
-    //     randomIndex = Random.Range(0, SpawnItens.Length);
-    //     float randomX = Random.Range(-4.0f, 7.47f);
-    //     float yPosition = 7.13f;
-    //     GameObject objetoInstanciado = Instantiate(SpawnItens[randomIndex], canvas.transform);
-    //     RectTransform rectTransform = objetoInstanciado.GetComponent<RectTransform>();
-    //     rectTransform.anchoredPosition = new Vector2(randomX, yPosition);
-    // }
-
-    void Reciclou()
+    
+    void Update()
     {
-
+        NumPontos.text = pontos.ToString();
     }
 }

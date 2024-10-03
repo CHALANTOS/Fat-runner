@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class Lixeira : MonoBehaviour, IDropHandler
 {
     [SerializeField]
@@ -10,7 +11,6 @@ public class Lixeira : MonoBehaviour, IDropHandler
 
     [SerializeField]
     private Vector2 coordenada;
-
     
     public void OnDrop(PointerEventData eventData)
     {

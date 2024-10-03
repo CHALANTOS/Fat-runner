@@ -11,10 +11,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
     private Canvas _canvas;
     [SerializeField]
     private CanvasGroup _canvasGroup;
-
     private float posRandomX;
-
     public Animator _animator;
+    public LixoController lixoController;
 
     public void OnBeginDrag(PointerEventData eventData)
     {  
@@ -51,6 +50,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }
+        
     }
     void Update()
     {
@@ -66,5 +66,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
         _transform.anchoredPosition = new Vector3(posRandomX, currentPosition.y);
     
         Debug.Log($"Posição aleatória aplicada: {posRandomX}");
+    }
+
+    public void Passou()
+    {
+        lixoController.pontos -= 1;
     }
 }
