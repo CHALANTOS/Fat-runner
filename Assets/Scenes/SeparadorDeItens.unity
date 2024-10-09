@@ -161,8 +161,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -838.99994, y: -5}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -829.83014, y: 15.280029}
+  m_SizeDelta: {x: 340.92, y: -90.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837905
 MonoBehaviour:
@@ -298,8 +298,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -699.99994, y: -356}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -654.46, y: -329.11}
+  m_SizeDelta: {x: 340.92, y: -90.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56721408
 MonoBehaviour:
@@ -699,8 +699,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -699.99994, y: -5}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -654.46, y: 15.280029}
+  m_SizeDelta: {x: 340.92, y: -90.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432696140
 MonoBehaviour:
@@ -1115,8 +1115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -769.99994, y: 351}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -742.7701, y: 360.7}
+  m_SizeDelta: {x: 340.92, y: -668.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &922885842
 MonoBehaviour:
@@ -1253,8 +1253,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -838.99994, y: -356}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -829.83, y: -329.11}
+  m_SizeDelta: {x: 340.92, y: -90.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1086263621
 MonoBehaviour:
@@ -2609,10 +2609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
