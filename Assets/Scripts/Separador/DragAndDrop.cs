@@ -14,16 +14,28 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
     private float posRandomX;
     public Animator _animator;
     public LixoController lixoController;
+    public bool isDragging = false;
+    public Lixeira currentLixeira = null;
 
     public void OnBeginDrag(PointerEventData eventData)
     {  
         _canvasGroup.alpha = 0.5f;
         _canvasGroup.blocksRaycasts = false;
+        isDragging = true;
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         _canvasGroup.alpha = 1f;
-       _canvasGroup.blocksRaycasts = true;
+        _canvasGroup.blocksRaycasts = true;
+        isDragging = false;
+
+        if (currentLixeira != null)
+        {
+            currentLixeira.AddPonto(GetComponent<Collider2D>());
+        }
+
+        currentLixeira = null; 
+
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -31,7 +43,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Apertou");
         _animator.enabled = false;
     }
     void Start()
@@ -64,8 +75,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
         Vector3 currentPosition = _transform.anchoredPosition;
 
         _transform.anchoredPosition = new Vector3(posRandomX, currentPosition.y);
-    
-        Debug.Log($"Posição aleatória aplicada: {posRandomX}");
     }
 
     public void Passou()

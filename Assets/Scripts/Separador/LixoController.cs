@@ -5,10 +5,7 @@ using TMPro;
 
 public class LixoController : MonoBehaviour
 {
-    public int pontos;
-
-    public Lixeira lixeira;
-
+    public int pontos;    
     public TMPro.TextMeshProUGUI NumPontos;
 
     void start()
