@@ -26,7 +26,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     public JoyStick botao;
     public GameController gameController;
+    public AudioSource audioSource;
+
     
+    public AudioClip[] footstepSounds;  
+    private float stepTimer = 0f;
+    private float stepInterval = 0.5f; 
+
     void Start()
     {
         Debug.Log("Comecou o jogo");
@@ -47,7 +53,7 @@ public class Player : MonoBehaviour
             Movimento();
         }
 
-        //InventÃ¡rio
+        // Inventário
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (isInstrucoesActive)
@@ -62,7 +68,7 @@ public class Player : MonoBehaviour
             podeAndar = !inventario.activeSelf;
         }
 
-        //HUD
+        // HUD
         if (Input.GetKeyDown(KeyCode.Z) && podeAndar)
         {
             instrucoes.SetActive(!isInstrucoesActive);
@@ -80,12 +86,14 @@ public class Player : MonoBehaviour
             movimentoVertical = Input.GetAxis("Vertical");
             transform.Translate(Vector3.up * Time.deltaTime * velocidade * movimentoVertical);
         }
+
         if(botao.andar_cima == true)
         {
             Debug.Log("andando_cima");
             transform.Translate(Vector3.up * velocidade * Time.deltaTime);
             animator.SetBool("Cima", true);
             animator.SetBool("Idle", false);
+            TocarSomDePasso();
         }
         
         if(botao.andar_baixo == true)
@@ -94,6 +102,7 @@ public class Player : MonoBehaviour
             transform.Translate(Vector3.down * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
             animator.SetBool("Baixo", true);
+            TocarSomDePasso();
         }
         
         if(botao.andar_esquerda == true)
@@ -103,6 +112,7 @@ public class Player : MonoBehaviour
             SR.flipX = true;
             animator.SetBool("Lados", true);
             animator.SetBool("Idle", false);
+            TocarSomDePasso();
         }
 
         if(botao.andar_direita == true)
@@ -111,7 +121,9 @@ public class Player : MonoBehaviour
             transform.Translate(Vector3.right * velocidade * Time.deltaTime);
             SR.flipX = false;
             animator.SetBool("Lados", true);
+            TocarSomDePasso();
         }
+
         if(!botao.andar_baixo && movimentoHorizontal == 0 && movimentoVertical == 0)
         {
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
@@ -128,7 +140,7 @@ public class Player : MonoBehaviour
             animator.SetBool("Cima", false);
             animator.SetBool("Idle", true);
         }
-            
+
         if(!gameController.isCelular)
         {
             if (Input.GetAxis("Horizontal") < 0)
@@ -138,6 +150,7 @@ public class Player : MonoBehaviour
                 animator.SetBool("Lados", true);
                 animator.SetBool("Cima", false);
                 animator.SetBool("Idle", false);
+                TocarSomDePasso();
             }
             else if (Input.GetAxis("Horizontal") > 0)
             {
@@ -146,6 +159,7 @@ public class Player : MonoBehaviour
                 animator.SetBool("Cima", false);
                 animator.SetBool("Idle", false);
                 animator.SetBool("Baixo", false);
+                TocarSomDePasso();
             }
             else if (movimentoVertical < 0)
             {
@@ -154,6 +168,7 @@ public class Player : MonoBehaviour
                 animator.SetBool("Cima", false);
                 animator.SetBool("Idle", false);
                 animator.SetBool("Lados", false);
+                TocarSomDePasso();
             }
             else if (movimentoVertical > 0)
             {
@@ -162,11 +177,27 @@ public class Player : MonoBehaviour
                 animator.SetBool("Idle", false);
                 animator.SetBool("Lados", false);
                 animator.SetBool("Baixo", false);
-                
+                TocarSomDePasso();
             }
 
         }
     }
+
+    void TocarSomDePasso()
+    {
+        stepTimer += Time.deltaTime;
+
+        if (stepTimer > stepInterval)
+        {
+            if (footstepSounds.Length > 0)
+            {
+                int randomIndex = Random.Range(0, footstepSounds.Length);
+                audioSource.PlayOneShot(footstepSounds[randomIndex]);
+            }
+            stepTimer = 0f;
+        }
+    }
+
 
     private void OnCollisionEnter2D(Collision2D other)
     {
