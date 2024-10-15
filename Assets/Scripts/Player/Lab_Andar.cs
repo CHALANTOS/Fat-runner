@@ -10,13 +10,18 @@ public class Lab_Andar : MonoBehaviour
     public bool Iniciou;
     public float movimentoHorizontal;
     public float movimentoVertical;
+    public AudioClip[] footstepSoundsGrass;
+    private float stepTimer = 0f;
+    [SerializeField]
+    public float stepInterval = 0.5f; 
+
 
     [Header("Imports")]
     public SpriteRenderer SR;
     public Animator animator;
     public Rigidbody2D rig;
     public GameObject CutScene;
-    
+    public AudioSource audioSource;
 
     public JoyStick botao;
     public PlayerJson playerJ;
@@ -73,6 +78,7 @@ public class Lab_Andar : MonoBehaviour
                 animator.SetBool("Lados", false);
                 animator.SetBool("Baixo", false);
                 animator.SetBool("Cima", true);
+                TocarSomDePasso();
 
                 SR.flipX = false;
             }
@@ -84,6 +90,7 @@ public class Lab_Andar : MonoBehaviour
                 animator.SetBool("Lados", false);
                 animator.SetBool("Baixo", true);
                 animator.SetBool("Cima", false);
+                TocarSomDePasso();
 
                 SR.flipX = false;
             }
@@ -95,6 +102,7 @@ public class Lab_Andar : MonoBehaviour
                 animator.SetBool("Lados", true);
                 animator.SetBool("Baixo", false);
                 animator.SetBool("Cima", false);
+                TocarSomDePasso();
 
                 SR.flipX = false;
             }
@@ -106,6 +114,7 @@ public class Lab_Andar : MonoBehaviour
                 animator.SetBool("Lados", true);
                 animator.SetBool("Baixo", false);
                 animator.SetBool("Cima", false);
+                TocarSomDePasso();
 
                 SR.flipX = true;
             }
@@ -120,6 +129,7 @@ public class Lab_Andar : MonoBehaviour
                 animator.SetBool("Lados", false);
                 animator.SetBool("Baixo", false);
                 animator.SetBool("Cima", true);
+                TocarSomDePasso();
 
                 SR.flipX = false;
             }
@@ -131,6 +141,7 @@ public class Lab_Andar : MonoBehaviour
                 animator.SetBool("Lados", false);
                 animator.SetBool("Baixo", true);
                 animator.SetBool("Cima", false);
+                TocarSomDePasso();
 
                 SR.flipX = false;
             }
@@ -142,6 +153,7 @@ public class Lab_Andar : MonoBehaviour
                 animator.SetBool("Lados", true);
                 animator.SetBool("Baixo", false);
                 animator.SetBool("Cima", false);
+                TocarSomDePasso();
 
                 SR.flipX = false;
             }
@@ -153,9 +165,25 @@ public class Lab_Andar : MonoBehaviour
                 animator.SetBool("Lados", true);
                 animator.SetBool("Baixo", false);
                 animator.SetBool("Cima", false);
+                TocarSomDePasso();
 
                 SR.flipX = true;
             }
+        }
+    }
+
+    void TocarSomDePasso()
+    {
+        stepTimer += Time.deltaTime;
+
+        if (stepTimer > stepInterval)
+        {
+            if (footstepSoundsGrass.Length > 0)
+            {
+                int randomIndex = Random.Range(0, footstepSoundsGrass.Length);
+                audioSource.PlayOneShot(footstepSoundsGrass[randomIndex]);
+            }
+            stepTimer = 0f;
         }
     }
 
@@ -163,7 +191,6 @@ public class Lab_Andar : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         Iniciou = true;
-        Debug.Log("Começou Lab");
     }
 
     void OnTriggerEnter2D(Collider2D colisao)

@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     bool isActive;
     [SerializeField] 
     int vida;
+    [SerializeField]
+    public float stepInterval = 0.5f; 
 
     [Header("Imports")]
     [SerializeField]
@@ -27,14 +29,16 @@ public class Player : MonoBehaviour
     public JoyStick botao;
     public GameController gameController;
     public AudioSource audioSource;
-
-    
-    public AudioClip[] footstepSounds;  
+    private AudioClip[] footstepSounds;
+    public AudioClip[] footstepSoundsGrass;
+    public AudioClip[] footstepSoundsWood; 
     private float stepTimer = 0f;
-    private float stepInterval = 0.5f; 
+
+
 
     void Start()
     {
+        footstepSounds = footstepSoundsGrass;
         Debug.Log("Comecou o jogo");
         rig = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
@@ -198,6 +202,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Ponte"))
+        {
+            footstepSounds = footstepSoundsWood;
+        }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Ponte"))
+        {
+            footstepSounds = footstepSoundsGrass;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {

@@ -25,6 +25,7 @@ TagManager:
   - Papel
   - Metal
   - Organico
+  - Ponte
   layers:
   - Default
   - TransparentFX

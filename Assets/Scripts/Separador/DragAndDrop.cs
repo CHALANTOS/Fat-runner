@@ -16,18 +16,23 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
     public LixoController lixoController;
     public bool isDragging = false;
     public Lixeira currentLixeira = null;
+    public Lixo lixoScript;
 
     public void OnBeginDrag(PointerEventData eventData)
     {  
         _canvasGroup.alpha = 0.5f;
         _canvasGroup.blocksRaycasts = false;
+
         isDragging = true;
+        lixoScript.ResumeAnimation();
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
+                
         isDragging = false;
+        lixoScript.PauseAnimation();
 
         if (currentLixeira != null)
         {
@@ -43,10 +48,16 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        isDragging = true;
         _animator.enabled = false;
     }
     void Start()
     {
+        if (lixoController == null)
+        {
+            lixoController = FindObjectOfType<LixoController>();
+        }
+        lixoScript = GetComponent<Lixo>();
         if (_canvas == null)
         {
             _canvas = FindObjectOfType<Canvas>();
@@ -79,6 +90,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler,IEndDragHandler, I
 
     public void Passou()
     {
-        lixoController.pontos -= 1;
+        if (lixoController != null)
+        {
+            lixoController.pontos -= 1;
+        }
     }
 }

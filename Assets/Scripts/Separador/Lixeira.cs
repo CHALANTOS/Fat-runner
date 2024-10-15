@@ -8,12 +8,10 @@ public class Lixeira : MonoBehaviour, IDropHandler
 {
     [SerializeField]
     private RectTransform _transform;
-
     [SerializeField]
     private Vector2 coordenada;
-
     public LixoController lixoController;
-    
+    public Lixo lixo;
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
@@ -70,6 +68,7 @@ private void OnTriggerExit2D(Collider2D other)
 
     public void AddPonto(Collider2D other)
     {
+        
         if (other != null)
         {
             if (other.CompareTag("Metal") && this.CompareTag("Metal"))
@@ -92,6 +91,7 @@ private void OnTriggerExit2D(Collider2D other)
             {
                 lixoController.pontos += 1;
             }
+            Destroy(other.gameObject);
         }
     }
 }
