@@ -26,6 +26,7 @@ public class ControladorDeUI : MonoBehaviour
             objeto.SetActive(true);
         }
         GameOver.SetActive(false);
+        Venceu.SetActive(false);
     }
 
     void Update()
@@ -49,6 +50,7 @@ public class ControladorDeUI : MonoBehaviour
 
     public void VenceuJogo()
     {
+        lixoSpawner.inJogo = false;
         Venceu.SetActive(true);
         foreach (GameObject objeto in itensJogo)
         {
@@ -63,6 +65,8 @@ public class ControladorDeUI : MonoBehaviour
             objeto.SetActive(true);
         }        
         GameOver.SetActive(false);
+        Venceu.SetActive(false);
+        lixoSpawner.inJogo = true;
         lixoController.pontos = 0;
     }
 

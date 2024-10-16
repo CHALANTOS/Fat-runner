@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,10 +17,12 @@ public class Player : MonoBehaviour
     int vida;
     [SerializeField]
     public float stepInterval = 0.5f; 
+    public string QualCena;
 
     [Header("Imports")]
     [SerializeField]
     public GameObject inventario;
+    public GameObject Mochila;
     public GameObject instrucoes;
     private Inventory inventoryScript;
     public SpriteRenderer SR;
@@ -45,19 +48,28 @@ public class Player : MonoBehaviour
         velocidade = 5f;
         podeAndar = true;
         inventoryScript = inventario.GetComponent<Inventory>();
-
-        isInstrucoesActive = true;
-        instrucoes.SetActive(true);
+        
     }
 
     void Update()
     {
+        if(gameController.isCelular == true)
+        {
+            Mochila.SetActive(true);
+            isInstrucoesActive = false;
+            instrucoes.SetActive(false);
+        }
+        else
+        {
+            isInstrucoesActive = true;
+            instrucoes.SetActive(true);
+            Mochila.SetActive(false);
+        }
         if (podeAndar == true)
         {
             Movimento();
         }
 
-        // Inventário
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (isInstrucoesActive)
@@ -219,6 +231,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if(other.gameObject.CompareTag("Lixo") && Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene(QualCena);
+        }
+
         if (other.gameObject.CompareTag("0"))
         {
             Destroy(other.gameObject);

@@ -61,6 +61,5 @@ public class Botao : MonoBehaviour
         andar_baixo = false;
         andar_esquerda = false;
         andar_direita = false;
-
     }
 }

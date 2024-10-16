@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     [Header("Imports")]
     public GameObject Botoes;
     public GameObject Escolha_plataform;
+    public GameObject Mochila;
+
     public GameObject Instrucoes;
     // public GameObject transicao;
     // public Animator transicaoAnim;
@@ -31,6 +33,7 @@ public class GameController : MonoBehaviour
             //transicao.SetActive(false);
             isEscolha_plataformActive = true;
             Escolha_plataform.SetActive(true);
+            Mochila.SetActive(false);
         }
         else
         {
@@ -52,6 +55,11 @@ public class GameController : MonoBehaviour
         {
             Botoes.SetActive(false);
             isBotoesActive = false;
+        }
+        if (playerJ.plataforma == "Celular")
+        {
+            Botoes.SetActive(true);
+            isBotoesActive = true;
         }
     }
 

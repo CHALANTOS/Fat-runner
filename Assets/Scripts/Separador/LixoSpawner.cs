@@ -13,15 +13,16 @@ public class LixoSpawner : MonoBehaviour
     private bool isSpawning = false;
     public bool inJogo;
 
-    void Start()
+    void Update()
     {
-        StartCoroutine(SpawnLixo());
+        if(inJogo == true)
+        {
+            StartCoroutine(SpawnLixo());
+        }
     }
 
     IEnumerator SpawnLixo()
     {
-        while(inJogo)
-        {
             if (!isSpawning)
             {
                 isSpawning = true;
@@ -41,6 +42,5 @@ public class LixoSpawner : MonoBehaviour
 
                 isSpawning = false;
             }
-        }
     }
 }
