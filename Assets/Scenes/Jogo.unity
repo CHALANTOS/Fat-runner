@@ -27256,7 +27256,8 @@ MonoBehaviour:
   isInstrucoesActive: 0
   vida: 0
   stepInterval: 0.26
-  QualCena: SeparadorDeItens
+  QualCena:
+    m_Handle: 0
   inventario: {fileID: 112741667}
   Mochila: {fileID: 1697240855}
   instrucoes: {fileID: 1397914738}
@@ -46471,6 +46472,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df2051f5c75ac64eb899b26101fc93b, type: 3}
+--- !u!1001 &8177653954257294666
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1052321676568742299, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 948999230}
+    - target: {fileID: 6070218613740389622, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_Name
+      value: Lixeira_Amarela
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.7931
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6716
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495433613457520620, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c261f2630da5b2b419bc70d3cd7368a5, type: 3}
 --- !u!1001 &8674480696107330287
 PrefabInstance:
   m_ObjectHideFlags: 0

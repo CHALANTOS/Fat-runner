@@ -54,6 +54,7 @@ public class Lixeira : MonoBehaviour, IDropHandler
     {
         dragScript.currentLixeira = this;
     }
+    Debug.Log("entrou_Lixeira");
 }
 
 private void OnTriggerExit2D(Collider2D other)
@@ -64,6 +65,7 @@ private void OnTriggerExit2D(Collider2D other)
     {
         dragScript.currentLixeira = null;
     }
+    Debug.Log("Saiu_Lixeira");
 }
 
     public void AddPonto(Collider2D other)

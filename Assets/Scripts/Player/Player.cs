@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     int vida;
     [SerializeField]
     public float stepInterval = 0.5f; 
-    public string QualCena;
+    public Scene QualCena;
 
     [Header("Imports")]
     [SerializeField]
@@ -231,9 +231,9 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Lixo") && Input.GetKeyDown(KeyCode.E))
+        if(other.gameObject.CompareTag("Lixo"))
         {
-            SceneManager.LoadScene(QualCena);
+            SceneManager.LoadScene("SeparadorDeItens");
         }
 
         if (other.gameObject.CompareTag("0"))
