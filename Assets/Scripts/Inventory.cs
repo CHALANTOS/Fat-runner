@@ -56,15 +56,19 @@ public class Inventory : MonoBehaviour
 
     public void desaparecer()
     {
-        Image imageComponent = mouseItem.GetComponent<Image>();
-
-        if (imageComponent != null)
+        if (mouseItem != null)
         {
-            Color newColor = imageComponent.color;
-            newColor.a = 0f;
-            imageComponent.color = newColor;
+            Image imageComponent = mouseItem.GetComponent<Image>();
+
+            if (imageComponent != null)
+            {
+                Color newColor = imageComponent.color;
+                newColor.a = 0f;
+                imageComponent.color = newColor;
+            }
         }
     }
+
     public void aparecer()
     {
         Image imageComponent = mouseItem.GetComponent<Image>();

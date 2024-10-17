@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float movimentoVertical;
     public float velocidade = 5.0f ;
     public bool podeAndar;
-    public bool isInstrucoesActive;
+    public bool isInstrucoesActive = true;
     bool isActive;
     [SerializeField] 
     int vida;
@@ -48,11 +48,7 @@ public class Player : MonoBehaviour
         velocidade = 5f;
         podeAndar = true;
         inventoryScript = inventario.GetComponent<Inventory>();
-        
-    }
 
-    void Update()
-    {
         if(gameController.isCelular == true)
         {
             Mochila.SetActive(true);
@@ -65,6 +61,12 @@ public class Player : MonoBehaviour
             instrucoes.SetActive(true);
             Mochila.SetActive(false);
         }
+        
+    }
+
+    void Update()
+    {
+        
         if (podeAndar == true)
         {
             Movimento();
@@ -85,7 +87,7 @@ public class Player : MonoBehaviour
         }
 
         // HUD
-        if (Input.GetKeyDown(KeyCode.Z) && podeAndar)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             instrucoes.SetActive(!isInstrucoesActive);
             isInstrucoesActive = !isInstrucoesActive; 
