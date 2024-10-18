@@ -67,12 +67,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         
-        if (podeAndar == true)
+        if (podeAndar && !inventario.activeSelf)
         {
             Movimento();
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) )
         {
             if (isInstrucoesActive)
             {
@@ -86,7 +86,6 @@ public class Player : MonoBehaviour
             podeAndar = !inventario.activeSelf;
         }
 
-        // HUD
         if (Input.GetKeyDown(KeyCode.Z))
         {
             instrucoes.SetActive(!isInstrucoesActive);
@@ -233,11 +232,6 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Lixo"))
-        {
-            SceneManager.LoadScene("SeparadorDeItens");
-        }
-
         if (other.gameObject.CompareTag("0"))
         {
             Destroy(other.gameObject);

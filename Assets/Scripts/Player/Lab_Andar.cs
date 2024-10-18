@@ -197,6 +197,8 @@ public class Lab_Andar : MonoBehaviour
     {
         if (colisao.CompareTag("TROCA"))
         {
+            playerJ.faseAtual = "labirinto";
+            playerJ.SaveGame();
             SceneManager.LoadScene("Jogo");
         }
     }

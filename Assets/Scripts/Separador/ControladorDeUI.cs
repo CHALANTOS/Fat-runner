@@ -14,9 +14,12 @@ public class ControladorDeUI : MonoBehaviour
     private float tempoEmSegundos;
     private string tempoFormatado;
     private float tempoRestante;
+    public PlayerJson playerJ;
 
     void Start()
     { 
+        playerJ = new PlayerJson();
+        playerJ.LoadGame();
         lixoSpawner.inJogo = true;
         tempoEmSegundos = 60f;
         tempoRestante = tempoEmSegundos;
@@ -50,6 +53,8 @@ public class ControladorDeUI : MonoBehaviour
 
     public void VenceuJogo()
     {
+        playerJ.faseAtual = "separador";
+        playerJ.SaveGame();
         lixoSpawner.inJogo = false;
         Venceu.SetActive(true);
         foreach (GameObject objeto in itensJogo)

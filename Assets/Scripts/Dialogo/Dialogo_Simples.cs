@@ -21,6 +21,7 @@ public class Dialogo_Simples : MonoBehaviour
     public GameObject Balao_Velho2;
 
     public GameObject Painel;
+    public bool conversou;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class Dialogo_Simples : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && emDialogo == true)
         {
+            conversou = true;
             StartCoroutine(Andar());
             Player.GetComponent<Player>().podeAndar = false;
             if (dialogo.aindaFalando == false)
@@ -100,13 +102,10 @@ public class Dialogo_Simples : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-
             //interagir.gameObject.SetActive(false);
             emDialogo = false;
             dialogo.EncerrarDialogo();
             StartCoroutine(PararDialogo());
-
-
         }
     }
 

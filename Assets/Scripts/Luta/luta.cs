@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class luta : MonoBehaviour
 {
+    public PlayerJson playerJ;
     public GameObject player;
-    public string str;
+    // public string str;
 
     private void Start()
     {
@@ -19,13 +20,51 @@ public class luta : MonoBehaviour
 
     private void Update()
     {
+        playerJ = new PlayerJson();
+        playerJ.LoadGame();
         if (player != null && Vector2.Distance(player.transform.position, transform.position) < 2)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (player != null && Vector2.Distance(player.transform.position, transform.position) < 2)
             {
-                Debug.Log("Missão Iniciada!");
-                SceneManager.LoadScene(str);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    switch (gameObject.name)
+                    {
+                        case "LABIRINTO":
+                            if (playerJ.faseAtual == "veio")
+                            {
+                                Debug.Log("Missão Iniciada no LABIRINTO!");
+                                SceneManager.LoadScene("Lab");
+                            }
+                            break;
+
+                        case "Separador":
+                            if (playerJ.faseAtual == "labirinto")
+                            {
+                                Debug.Log("Missão Iniciada em Separador!");
+                                SceneManager.LoadScene("SeparadorDeItens");
+                            }
+                            break;
+
+                        case "Lenhador":
+                            if (playerJ.faseAtual == "separador")
+                            {
+                                Debug.Log("Missão Iniciada em Lenhador!");
+                                SceneManager.LoadScene("Luta");
+                            }
+                            break;
+
+                        default:
+                            Debug.Log("Nenhuma missão iniciada.");
+                            break;
+                    }
+                }
             }
         }
     }
 }
+// if (Input.GetKeyDown(KeyCode.E))
+// {
+//     Debug.Log("Missão Iniciada!");
+//     SceneManager.LoadScene(str);
+// }

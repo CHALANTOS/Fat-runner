@@ -9,6 +9,7 @@ public class PlayerJson
 {
 
     public string plataforma;
+    public string faseAtual;
     private string path = "Assets/Player.txt";
 
 
@@ -24,6 +25,7 @@ public class PlayerJson
         var data = JsonUtility.FromJson<PlayerJson>(content);
 
         plataforma = data.plataforma;
+        faseAtual = data.faseAtual;
     }
 
 }

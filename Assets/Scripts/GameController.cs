@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject Botoes;
     public GameObject Escolha_plataform;
     public GameObject Mochila;
+    public Dialogo_Simples Veio;
 
     public GameObject Instrucoes;
     // public GameObject transicao;
@@ -27,10 +28,9 @@ public class GameController : MonoBehaviour
         playerJ = new PlayerJson();
         playerJ.LoadGame();
 
-
         if (!escolheuPlataforma)
         {
-            //transicao.SetActive(false);
+            playerJ.faseAtual = "";
             isEscolha_plataformActive = true;
             Escolha_plataform.SetActive(true);
             Mochila.SetActive(false);
@@ -39,7 +39,6 @@ public class GameController : MonoBehaviour
         {
             isEscolha_plataformActive = false;
             Escolha_plataform.SetActive(false);
-            //transicaoAnim.Play("transicao_Jogo");
         }
 
         isInstucoesActive = true;
@@ -61,6 +60,12 @@ public class GameController : MonoBehaviour
             Botoes.SetActive(true);
             isBotoesActive = true;
         }
+
+        if(Veio.conversou)
+        {
+            playerJ.faseAtual = "veio";
+            playerJ.SaveGame();
+        }
     }
 
     public void Celular()
@@ -69,7 +74,7 @@ public class GameController : MonoBehaviour
         playerJ.plataforma = "Celular";
         playerJ.SaveGame();
         escolheuPlataforma = true;
-
+        Mochila.SetActive(true);
         if (isInstucoesActive)
         {
             Instrucoes.SetActive(false);
@@ -89,7 +94,7 @@ public class GameController : MonoBehaviour
         playerJ.plataforma = "PC";
         playerJ.SaveGame();
         escolheuPlataforma = true;
-
+        Mochila.SetActive(false);
         if (isBotoesActive)
         {
             Botoes.SetActive(false);
