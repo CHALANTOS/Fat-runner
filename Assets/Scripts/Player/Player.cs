@@ -74,11 +74,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab) )
         {
-            if (isInstrucoesActive)
-            {
-                instrucoes.SetActive(false);
-                isInstrucoesActive = false;
-            }
+            
 
             isActive = !inventario.activeSelf;
             inventario.SetActive(isActive);

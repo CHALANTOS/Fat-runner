@@ -1,4 +1,8 @@
 {
-    "plataforma": "Celular",
-    "faseAtual": ""
+    "plataforma": "PC",
+    "faseAtual": "labirinto",
+    "VezesJogadasLab": "0",
+    "VezesJogadasSeparador": "0",
+    "VezesJogadasLuta": "0",
+    "VezesConversadas": "0"
 }

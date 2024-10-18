@@ -26021,6 +26021,7 @@ GameObject:
   - component: {fileID: 619060585}
   - component: {fileID: 619060587}
   - component: {fileID: 619060586}
+  - component: {fileID: 619060588}
   m_Layer: 5
   m_Name: Nao_pode_troca
   m_TagString: Untagged
@@ -26045,8 +26046,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -227}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -19.88, y: -237}
+  m_SizeDelta: {x: 805.22, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &619060586
 MonoBehaviour:
@@ -26145,6 +26146,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619060584}
   m_CullTransparentMesh: 1
+--- !u!95 &619060588
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619060584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 300e8d2c1142b9945abdd04ac3e37824, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &694430633
 GameObject:
   m_ObjectHideFlags: 0
@@ -27848,6 +27870,9 @@ MonoBehaviour:
     plataforma: 
     faseAtual: 
   player: {fileID: 948999230}
+  fases_sequencia: {fileID: 619060586}
+  textoFases: {fileID: 619060584}
+  animTexto: {fileID: 619060588}
 --- !u!61 &1028815990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27880,7 +27905,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0137157, y: -0.23715353}
+  m_Offset: {x: -1.0167933, y: -0.34401238}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -27891,7 +27916,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1728554, y: 0.8706436}
+  m_Size: {x: 3.0435982, y: 0.5304024}
   m_EdgeRadius: 0
 --- !u!1 &1042762766
 GameObject:
@@ -27912,7 +27937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1042762767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27926,6 +27951,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 948999232}
+  playerJ:
+    plataforma: 
+    faseAtual: 
   inventario: {fileID: 112741667}
   botoesMovi: {fileID: 869689003}
   IsActive: 0
@@ -37029,6 +37057,9 @@ MonoBehaviour:
     plataforma: 
     faseAtual: 
   player: {fileID: 948999230}
+  fases_sequencia: {fileID: 619060586}
+  textoFases: {fileID: 619060584}
+  animTexto: {fileID: 619060588}
 --- !u!61 &1215892002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37533,6 +37564,9 @@ MonoBehaviour:
     plataforma: 
     faseAtual: 
   player: {fileID: 948999230}
+  fases_sequencia: {fileID: 619060586}
+  textoFases: {fileID: 619060584}
+  animTexto: {fileID: 619060588}
 --- !u!61 &1240213882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39371,6 +39405,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 948999232}
+  playerJ:
+    plataforma: 
+    faseAtual: 
   inventario: {fileID: 112741667}
   botoesMovi: {fileID: 869689003}
   IsActive: 0

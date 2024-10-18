@@ -1,7 +1,9 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+
 
 public class Dialogo_Simples : MonoBehaviour
 {
@@ -16,10 +18,10 @@ public class Dialogo_Simples : MonoBehaviour
 
     [SerializeField] int qualFala;
 
-     public GameObject Player;
+    public GameObject Player;
     public GameObject Balao_Velho;
     public GameObject Balao_Velho2;
-
+    public PlayerJson playerJ;
     public GameObject Painel;
     public bool conversou;
 
@@ -34,14 +36,29 @@ public class Dialogo_Simples : MonoBehaviour
 
     private void Start()
     {
+        playerJ = new PlayerJson();
+        playerJ.LoadGame();
         Balao_Velho2.SetActive(false);
     }
 
     private void LateUpdate()
     {
+        playerJ.LoadGame();
         if (Input.GetKeyDown(KeyCode.Space) && emDialogo == true)
         {
-            conversou = true;
+            
+            if(playerJ.VezesConversadas == "0")
+            {
+                conversou = true;
+                playerJ.VezesConversadas = "1";
+                playerJ.SaveGame();
+            }
+            else if(playerJ.VezesConversadas != "0")
+            {
+                playerJ.VezesConversadas = "1";
+                playerJ.SaveGame();
+                conversou = true;
+            }
             StartCoroutine(Andar());
             Player.GetComponent<Player>().podeAndar = false;
             if (dialogo.aindaFalando == false)

@@ -161,7 +161,7 @@ public class Cerebro : MonoBehaviour
         {
             if(escudoAtivo == false)
             {
-                Barra.RealVida -= 1;
+                Barra.RealVida -= 1f;
                 Debug.Log("Colidiu com a Ball! Vida restante: " + Barra.RealVida);
             }
             escudo.SetActive(false);

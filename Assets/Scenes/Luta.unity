@@ -630,6 +630,7 @@ MonoBehaviour:
   botao: {fileID: 549809245}
   playerJ:
     plataforma: 
+    faseAtual: 
   escudo: {fileID: 1215329366}
 --- !u!212 &182424847
 SpriteRenderer:
@@ -1894,6 +1895,7 @@ MonoBehaviour:
   AcoesPlayer: {fileID: 565894221}
   playerJ:
     plataforma: 
+    faseAtual: 
   acoesPlayer: {fileID: 182424850}
   isButtonsActive: 0
   str: Jogo
@@ -2254,7 +2256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1172202599}
-  RealVida: 10
+  RealVida: 20
 --- !u!114 &1172202599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2300,9 +2302,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 10
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
+
 
 public class ControladorDeUI : MonoBehaviour
 {
@@ -34,6 +36,7 @@ public class ControladorDeUI : MonoBehaviour
 
     void Update()
     {
+        playerJ.LoadGame();
         if(lixoController.pontos < 0)
         {
             FimDeJogo();
@@ -53,8 +56,13 @@ public class ControladorDeUI : MonoBehaviour
 
     public void VenceuJogo()
     {
-        playerJ.faseAtual = "separador";
-        playerJ.SaveGame();
+        if(playerJ.VezesJogadasSeparador == "0")
+        {
+            playerJ.VezesJogadasSeparador = "1";
+            playerJ.faseAtual = "separador";
+            playerJ.SaveGame();
+        }
+
         lixoSpawner.inJogo = false;
         Venceu.SetActive(true);
         foreach (GameObject objeto in itensJogo)

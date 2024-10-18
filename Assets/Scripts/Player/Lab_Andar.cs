@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
+
 
 public class Lab_Andar : MonoBehaviour
 {
@@ -40,6 +42,7 @@ public class Lab_Andar : MonoBehaviour
 
     void Update()
     {
+        playerJ.LoadGame();
         if (Iniciou)
         {
             Movimento();
@@ -197,9 +200,19 @@ public class Lab_Andar : MonoBehaviour
     {
         if (colisao.CompareTag("TROCA"))
         {
-            playerJ.faseAtual = "labirinto";
-            playerJ.SaveGame();
-            SceneManager.LoadScene("Jogo");
+            if(playerJ.VezesJogadasLab == "0")
+            {
+                playerJ.VezesConversadas = "1";
+                playerJ.VezesJogadasLab = "1";
+                playerJ.faseAtual = "labirinto";
+                playerJ.SaveGame();
+                SceneManager.LoadScene("Jogo");
+            }
+            else if(playerJ.VezesJogadasLab == "1")
+            {
+                SceneManager.LoadScene("Jogo");
+            }
+
         }
     }
 }

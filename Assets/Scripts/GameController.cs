@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+
 
 public class GameController : MonoBehaviour
 {
@@ -15,7 +17,6 @@ public class GameController : MonoBehaviour
     public GameObject Escolha_plataform;
     public GameObject Mochila;
     public Dialogo_Simples Veio;
-
     public GameObject Instrucoes;
     // public GameObject transicao;
     // public Animator transicaoAnim;
@@ -25,8 +26,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        playerJ = new PlayerJson();
         playerJ.LoadGame();
+
 
         if (!escolheuPlataforma)
         {
@@ -50,6 +51,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        playerJ.LoadGame();
         if (playerJ.plataforma == "PC")
         {
             Botoes.SetActive(false);
@@ -60,11 +62,13 @@ public class GameController : MonoBehaviour
             Botoes.SetActive(true);
             isBotoesActive = true;
         }
-
-        if(Veio.conversou)
+        if(playerJ.VezesConversadas == "0")
         {
-            playerJ.faseAtual = "veio";
-            playerJ.SaveGame();
+            if(Veio.conversou)
+            {
+                playerJ.faseAtual = "veio";
+                playerJ.SaveGame();
+            }
         }
     }
 

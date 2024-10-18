@@ -12,7 +12,7 @@ public class AcoesPlayer : MonoBehaviour
 
     public void Ataque()
     {
-        BarrasInim.RealVidaInim -= 1;
+        BarrasInim.RealVidaInim -= 2;
         lenhadorBranco.AplicarDano();
         lutaController.round = 0;
     }

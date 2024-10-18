@@ -10,6 +10,11 @@ public class PlayerJson
 
     public string plataforma;
     public string faseAtual;
+    public string VezesJogadasLab;
+    public string VezesJogadasSeparador;
+    public string VezesJogadasLuta;
+    public string VezesConversadas;
+    
     private string path = "Assets/Player.txt";
 
 
@@ -26,6 +31,10 @@ public class PlayerJson
 
         plataforma = data.plataforma;
         faseAtual = data.faseAtual;
+        VezesJogadasLab = data.VezesJogadasLab;
+        VezesJogadasSeparador = data.VezesJogadasSeparador;
+        VezesJogadasLuta = data.VezesJogadasLuta;
+        VezesConversadas = data.VezesConversadas;
     }
 
 }
