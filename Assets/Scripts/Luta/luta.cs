@@ -13,6 +13,8 @@ public class luta : MonoBehaviour
     public TMPro.TextMeshProUGUI fases_sequencia;
     public GameObject textoFases;
     public Animator animTexto;
+    public Animator animCaixa;
+
     
     private void Start()
     {
@@ -21,6 +23,7 @@ public class luta : MonoBehaviour
         {
             Debug.LogError("Player não encontrado!");
         }
+        textoFases.SetActive(false);
     }
 
     private void Update()
@@ -45,6 +48,7 @@ public class luta : MonoBehaviour
                             {
                                 textoFases.SetActive(true);
                                 animTexto.Play("Texto_fases",-1,0f);
+                                animCaixa.Play("Texto_fases",-1,0f);
                                 fases_sequencia.text = "Converse com o Walter antes de iniciar a fase";
                             }
                             break;
@@ -59,12 +63,14 @@ public class luta : MonoBehaviour
                             {
                                 textoFases.SetActive(true);
                                 animTexto.Play("Texto_fases",-1,0f);
+                                animCaixa.Play("Texto_fases",-1,0f);
                                 fases_sequencia.text = "Vá no labirinto primeiro (Dados)";
                             }
                             else if(playerJ.faseAtual == "")
                             {
                                 textoFases.SetActive(true);
                                 animTexto.Play("Texto_fases",-1,0f);
+                                animCaixa.Play("Texto_fases",-1,0f);
                                 fases_sequencia.text = "Converse com o Walter antes de iniciar a fase";
                             }
                             break;
@@ -79,18 +85,21 @@ public class luta : MonoBehaviour
                             {
                                 textoFases.SetActive(true);
                                 animTexto.Play("Texto_fases",-1,0f);
+                                animCaixa.Play("Texto_fases",-1,0f);
                                 fases_sequencia.text = "Separe o lixo primeiro";
                             }
                             else if(playerJ.faseAtual == "veio")
                             {
                                 textoFases.SetActive(true);
                                 animTexto.Play("Texto_fases",-1,0f);
+                                animCaixa.Play("Texto_fases",-1,0f);
                                 fases_sequencia.text = "Vá no labirinto primeiro (Dados)";
                             }
                             else if(playerJ.faseAtual == "")
                             {
                                 textoFases.SetActive(true);
-                                animTexto.Play("Texto_fases");
+                                animTexto.Play("Texto_fases",-1,0f);
+                                animCaixa.Play("Texto_fases",-1,0f);
                                 fases_sequencia.text = "Converse com o Walter antes de iniciar a fase";
                             }
                             break;

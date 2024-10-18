@@ -26,10 +26,9 @@ MonoBehaviour:
   - Foi feito por alguns jovens....
   - Que interessante!!!!
   - Onde inicia?
-  - Aqui mesmo, na entrada!
-  - Como?
-  - "Va naquele lugar perto da entrada e fa\xE7a o labirinto"
-  - Ok senhor, muito obrigado!
+  - Siga para o sul, atravesse a ponte e seu destino encontrara
+  - Que Misterioso UwU
+  - Valeu velhote :)
   quemFala:
   - Player
   - NPC
@@ -45,6 +44,5 @@ MonoBehaviour:
   - Player
   - NPC
   - Player
-  - NPC
   - Player
-  qualExpressao: 00000000010000000000000001000000000000000100000000000000010000000000000001000000000000000000000001000000000000000100000000000000
+  qualExpressao: 000000000100000000000000010000000000000001000000000000000100000000000000010000000000000000000000010000000000000000000000

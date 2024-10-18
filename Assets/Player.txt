@@ -1,8 +1,8 @@
 {
     "plataforma": "PC",
-    "faseAtual": "labirinto",
-    "VezesJogadasLab": "0",
-    "VezesJogadasSeparador": "0",
+    "faseAtual": "separador",
+    "VezesJogadasLab": "1",
+    "VezesJogadasSeparador": "1",
     "VezesJogadasLuta": "0",
-    "VezesConversadas": "0"
+    "VezesConversadas": "1"
 }

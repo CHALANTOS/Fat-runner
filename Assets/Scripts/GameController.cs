@@ -28,10 +28,13 @@ public class GameController : MonoBehaviour
     {
         playerJ.LoadGame();
 
-
         if (!escolheuPlataforma)
         {
-            playerJ.faseAtual = "";
+            playerJ.VezesConversadas = "0";
+            playerJ.VezesJogadasSeparador = "0";
+            playerJ.VezesJogadasLuta = "0";
+            playerJ.VezesJogadasLab = "0";
+            playerJ.SaveGame();
             isEscolha_plataformActive = true;
             Escolha_plataform.SetActive(true);
             Mochila.SetActive(false);
@@ -62,15 +65,8 @@ public class GameController : MonoBehaviour
             Botoes.SetActive(true);
             isBotoesActive = true;
         }
-        if(playerJ.VezesConversadas == "0")
-        {
-            if(Veio.conversou)
-            {
-                playerJ.faseAtual = "veio";
-                playerJ.SaveGame();
-            }
         }
-    }
+    
 
     public void Celular()
     {
@@ -94,6 +90,7 @@ public class GameController : MonoBehaviour
 
     public void PC()
     {
+        playerJ.faseAtual = "";
         isCelular = false;
         playerJ.plataforma = "PC";
         playerJ.SaveGame();

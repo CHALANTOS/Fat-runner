@@ -51,13 +51,13 @@ public class Dialogo_Simples : MonoBehaviour
             {
                 conversou = true;
                 playerJ.VezesConversadas = "1";
+                playerJ.faseAtual = "veio";
                 playerJ.SaveGame();
             }
             else if(playerJ.VezesConversadas != "0")
             {
                 playerJ.VezesConversadas = "1";
                 playerJ.SaveGame();
-                conversou = true;
             }
             StartCoroutine(Andar());
             Player.GetComponent<Player>().podeAndar = false;
