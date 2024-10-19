@@ -249,9 +249,9 @@ TextureImporter:
       name: "N\xF3is_4"
       rect:
         serializedVersion: 2
-        x: 364
+        x: 368
         y: 0
-        width: 71
+        width: 67
         height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
