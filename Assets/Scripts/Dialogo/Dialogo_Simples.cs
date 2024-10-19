@@ -108,6 +108,11 @@ public class Dialogo_Simples : MonoBehaviour
             Debug.Log(qualFala);
             emDialogo = true;
             dialogo.indexFala = 0;
+             if (interagir != null) // Verificação de null antes de ativar
+            {
+                interagir.gameObject.SetActive(true);
+            }
+
             //interagir.gameObject.SetActive(true);
             StopAllCoroutines();
         }
@@ -119,6 +124,10 @@ public class Dialogo_Simples : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            if (interagir != null) // Verificação de null antes de desativar
+            {
+                interagir.gameObject.SetActive(false);
+            }
             //interagir.gameObject.SetActive(false);
             emDialogo = false;
             dialogo.EncerrarDialogo();
