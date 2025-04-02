@@ -5,12 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Botao : MonoBehaviour
-{  
-    [SerializeField]
-    public Player PlayerScript;
-    [SerializeField]
-    public GameObject player;
-    
+{
     [SerializeField]
     private Button BotaoJogar;
 

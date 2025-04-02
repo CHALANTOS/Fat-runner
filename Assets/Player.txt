@@ -1,8 +1,8 @@
 {
     "plataforma": "PC",
-    "faseAtual": "veio",
+    "faseAtual": "",
     "VezesJogadasLab": "0",
     "VezesJogadasSeparador": "0",
     "VezesJogadasLuta": "0",
-    "VezesConversadas": "1"
+    "VezesConversadas": "0"
 }
